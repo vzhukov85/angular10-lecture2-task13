@@ -3,18 +3,26 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'angular10-lecture2-task13';
-  def_val: string = '';
-  push_val: string = '';
+  title = 'root-val';
+  defVal = '';
+  pushVal = '';
 
-  onChangedDef(val) {
-    this.def_val = val;
+  onChangedDef(val: string): void {
+    this.defVal = val;
   }
 
-  onChangedPush(val) {
-    this.push_val = val;
+  onChangedPush(val: string): void {
+    this.pushVal = val;
+  }
+
+  onClick(): void {
+    this.title = 'changed-root-val';
+  }
+
+  onChange(event: any): void {
+    this.title = event.target.value;
   }
 }

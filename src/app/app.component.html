@@ -1,8 +1,14 @@
-Default value: <br/><app-def (onChanged)="onChangedDef($event)"></app-def>
+<input type='text' (input)='onChange($event)'/>
+<button (click) = 'onClick()'>Click</button>
+{{title}}
 
-<br/>
-Push value: <br/><app-push (onChanged)="onChangedPush($event)"></app-push>
+<hr/>
+Default value: <br/><app-def (onChanged)="onChangedDef($event)" [rootVal]="title"></app-def>
 
-<br/>
-<p>default value: {{def_val}} </p>
-<p>push value: {{push_val}} </p>
+<hr/>
+Push value: <br/><app-push (onChanged)="onChangedPush($event)" [rootVal]="title"></app-push>
+
+<hr/>
+<p>root value: {{title}}</p>
+<p>default value: {{defVal}} </p>
+<p>push value: {{pushVal}} </p>

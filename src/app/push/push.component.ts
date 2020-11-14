@@ -1,20 +1,31 @@
-import { Component, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Output,
+  ChangeDetectionStrategy,
+  Input,
+} from '@angular/core';
 
 @Component({
   selector: 'app-push',
   templateUrl: './push.component.html',
   styleUrls: ['./push.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PushComponent {
-  val = "push_val"
-
+  val = 'push_val';
+  @Input() rootVal = '';
   @Output() onChanged = new EventEmitter<string>();
 
-  constructor() { }
+  constructor() {}
 
-  onInput(event) {
-     this.val = event.target.value
-     this.onChanged.emit(this.val)
+  onInput(event): void {
+    this.val = event.target.value;
+    this.onChanged.emit(this.val);
+  }
+
+  get runChangeDetection(): boolean {
+    console.log('checking the view onPush');
+    return true;
   }
 }
